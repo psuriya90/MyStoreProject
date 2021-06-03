@@ -5,6 +5,8 @@ package com.mystore.utility;
 
 
 
+import java.util.HashMap;
+
 import org.testng.annotations.DataProvider;
 
 /**
@@ -71,5 +73,21 @@ public class DataProviderUtility {
 			}
 		}
 		return data;
+	}
+	
+	@DataProvider(name="getCreateAccountDetails")
+	public Object[][] getCreateAccountDetailsFromExcel(){
+		HashMap<String,String> hMap=new HashMap<String,String>();
+		int rows=obj.getRowCount("createAccountDetails");
+		int columns=obj.getColumnCount("createAccountDetails");
+		//int actualRows= rows-1;
+		Object[][] data= new Object[rows][columns];
+		for(int i=0;i<rows;i++) {
+			for(int j=0;j<columns;j++) {
+				hMap.put(obj.getCellData("createAccountDetails", j, i), obj.getCellData("createAccountDetails", j, i+2));
+			}
+		}
+		return new Object[][] {
+			{hMap}};
 	}
 }
