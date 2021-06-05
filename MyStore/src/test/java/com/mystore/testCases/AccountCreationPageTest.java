@@ -17,6 +17,7 @@ import com.mystore.page.HomePage;
 import com.mystore.page.IndexPage;
 import com.mystore.page.LoginPage;
 import com.mystore.utility.DataProviderUtility;
+import com.mystore.utility.Log;
 
 /**
  * @author Sys
@@ -43,7 +44,10 @@ public class AccountCreationPageTest extends BaseClass {
 	@Test(priority=1,groups="Sanity",dataProvider="getCreateAccountDetails",dataProviderClass=DataProviderUtility.class)
 	public void createAccount(HashMap<String,String> hMap) {
 		indexPage=new IndexPage(); 
+		Log.startTestCase("createAccount()");
+		Log.startTestCase("createAccount()>> Click on signin");
 		loginPage=indexPage.clickOnSignIn();
+		Log.startTestCase("createAccount()>> access data from excel"+hMap.get("Email"));
 		accntPage=loginPage.createNewAccnt(hMap.get("Email"));
 		accntPage.createNewAccount(hMap.get("Gender"),hMap.get("FirstName"),hMap.get("LastName"),
 				hMap.get("Password"),hMap.get("Day"),hMap.get("Month"),

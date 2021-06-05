@@ -37,10 +37,10 @@ public class ExtentManager{
 		
 		er= new ExtentReports();
 		er.attachReporter(eh);
-		er.setSystemInfo("Host Name", "My Host");
+		/*er.setSystemInfo("Host Name", "My Host");
 		er.setSystemInfo("Project Name", "MyStore");
 		er.setSystemInfo("OS", "Windows 7");
-		er.setSystemInfo("Tester", "Priya");
+		er.setSystemInfo("Tester", "Priya");*/
 	}
 	
 	

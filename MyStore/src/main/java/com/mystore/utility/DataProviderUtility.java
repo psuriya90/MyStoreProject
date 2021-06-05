@@ -77,14 +77,19 @@ public class DataProviderUtility {
 	
 	@DataProvider(name="getCreateAccountDetails")
 	public Object[][] getCreateAccountDetailsFromExcel(){
+		System.out.println("getCreateAccountDetailsFromExcel()");
 		HashMap<String,String> hMap=new HashMap<String,String>();
 		int rows=obj.getRowCount("createAccountDetails");
+		System.out.println("getCreateAccountDetailsFromExcel()>>rows>>"+rows);
 		int columns=obj.getColumnCount("createAccountDetails");
+		System.out.println("getCreateAccountDetailsFromExcel()>>columns>>"+columns);
 		//int actualRows= rows-1;
 		Object[][] data= new Object[rows][columns];
 		for(int i=0;i<rows;i++) {
 			for(int j=0;j<columns;j++) {
-				hMap.put(obj.getCellData("createAccountDetails", j, i), obj.getCellData("createAccountDetails", j, i+2));
+				System.out.println("getCreateAccountDetailsFromExcel()>>key>>"+obj.getCellData("createAccountDetails", j, i+1));
+				System.out.println("getCreateAccountDetailsFromExcel()>>value>>"+obj.getCellData("createAccountDetails", j, i+2));
+				hMap.put(obj.getCellData("createAccountDetails", j, i+1), obj.getCellData("createAccountDetails", j, i+2));
 			}
 		}
 		return new Object[][] {

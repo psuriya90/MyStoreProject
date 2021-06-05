@@ -94,7 +94,7 @@ public class AccountCreationPage extends BaseClass {
 		ActionDriver.type(lastName, lName);
 		ActionDriver.type(password, pswd);
 		ActionDriver.selectByValue(days, day);
-		ActionDriver.selectByValue(months, month);
+		ActionDriver.selectByIndex(months, Integer.valueOf(month));
 		ActionDriver.selectByValue(years, year);
 		//ActionDriver.type(cfName, fName);
 		//ActionDriver.type(clName, lName);
